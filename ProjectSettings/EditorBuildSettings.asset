@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Recovery/Prologue.unity
+    guid: 47c126533292c9c44b5f556d84ae369a
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/_Recovery/EveCorridor.unity
+    guid: 9518248fc8f8aad499a3111ac725a6f9
+  - enabled: 1
+    path: Assets/_Recovery/Eve_Stairs.unity
+    guid: f29c78a3bbbc0d14097360ed32ebbf34
+  - enabled: 1
+    path: Assets/_Recovery/chapter1.unity
+    guid: f0bdd33a6b34e034396eee8079f36d11
+  - enabled: 1
+    path: Assets/_Recovery/Red_Corridor.unity
+    guid: d3cea339c391deb4fb9c493c92a0d666
+  - enabled: 1
+    path: Assets/TextMesh Pro/Resources/Sprite Assets/TheEnd.unity
+    guid: 8ef06f1c30638a44eb97c1e462683381
+  - enabled: 1
+    path: Assets/_Recovery/Red_Stairs.unity
+    guid: 08f131c3178e9aa4bbfa692a29e8a48f
+  - enabled: 0
+    path: Assets/_Recovery/Graven_Room.unity
+    guid: 2faed5f17abac2a4d8fcc9de969ec733
+  - enabled: 0
+    path: Assets/_Recovery/Secret_Garden.unity
+    guid: 0b5392d05fd42b644b25a47c4c233fa4
+  - enabled: 1
+    path: Assets/_Recovery/Frontyard.unity
+    guid: fb1087f78f3a9d545ba5eef5f7f4fba2
+  - enabled: 0
+    path: Assets/_Recovery/Lithia_Room.unity
+    guid: b9e7e3275be98e5438d807b973658fec
+  - enabled: 1
+    path: Assets/_Recovery/Forest.unity
+    guid: 0b7eb7fef41784f4584b6777ab5f1148
+  - enabled: 0
+    path: Assets/_Recovery/Kid_Room.unity
+    guid: cd200196b7bd53847a2da3819e061482
+  - enabled: 1
+    path: Assets/_Recovery/Kitchen.unity
+    guid: fdadfcd6f78697c4183bcbdb2025261e
+  - enabled: 0
+    path: Assets/_Recovery/Garbage.unity
+    guid: 63dcc5b03ff751e439fab3cd6c821e3a
+  - enabled: 1
+    path: Assets/_Recovery/Lake.unity
+    guid: 61bd1590316a1244ba419e74ca2bc621
+  - enabled: 1
+    path: Assets/_Recovery/Date.unity
+    guid: 5c3548f4851cdaf44a0827bec4537a3e
+  - enabled: 1
+    path: Assets/_Recovery/Yard.unity
+    guid: 36ea602dd16b910499e55a19d8017301
+  - enabled: 1
+    path: Assets/_Recovery/Silent_Place.unity
+    guid: 64214ea33c85cf34f97592f6587795be
+  - enabled: 1
+    path: Assets/_Recovery/Bridge.unity
+    guid: 0cf9429a56c70d34d9b0e715e111324d
+  - enabled: 1
+    path: Assets/_Recovery/Ground.unity
+    guid: c2b5fbfac93fbf140b3201a6cc199f06
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_UseUCBPForAssetBundles: 0

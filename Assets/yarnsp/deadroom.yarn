@@ -1,0 +1,947 @@
+﻿title: Prologue
+---
+<<declare $player_date = "">>
+<<declare $name = "">>
+
+<<declare $need_water = false>>
+<<declare $bed_click = false>>
+<<declare $pic_click = false>>
+<<declare $balcony_click = false>>
+<<declare $boots_click = false>>
+<<declare $vase_click = false>>
+<<declare $phantom_says_flower = false>>
+
+
+<<declare $water_flower = false>>
+<<declare $have_picture = false>>
+<<declare $color_vid = false>>
+<<declare $rose_vid = false>>
+<<declare $monster_vid = false>>
+
+<<wait 1>>
+It involves darker themes such as suicide, self-harm and abuse.
+Please play at your own risk.
+If you get triggered, consider not to play it.
+Your mental health is more important.
+<<wait 2>>
+You don't remember much.
+Only fragments.
+But they are not all good.
+<<audio starting>>
+<<wait 1>>
+In this place, you don't have to remember anything you don't want to.
+You can be an entirely new per-
+Oh, but the fragments bleed into bits and pieces
+<<wait 1>>
+to haunt you.
+<<wait 1>>
+<<portrait Phantom>>
+Phantom: ......
+<<hideportrait>>
+<<portrait PhantomSmile>>
+Phantom: Hello
+<<hideportrait>>
+<<portrait Phantom>>
+Phantom: Don't question who I am.
+Phantom: I live in the depths of your mind.
+Phantom: So you can't push me away.
+<<hideportrait>>
+<<portrait PhantomSmile>>
+Phantom: I will keep appearing.
+<<hideportrait>>
+<<portrait Phantom>>
+Phantom: Let's get started, shall we?
+Phantom: Tell me who you are. 
+Phantom: Give me a name and...
+Phantom: ....a number.
+Phantom: The day you were born.
+<<hideportrait>>
+<<portrait PhantomSmile>>
+Phantom: What could be more special than that, right?
+<<hideportrait>>
+<<ShowThing_flower>>
+===
+
+title: Chapter1willstart
+---
+<<if $need_water == true>>
+  You can stay here forever.
+  And rot.
+<<else>>
+  <<wait 2>>
+  There are some roses at the corner of most places.
+  They are taken as arrows, they direct you to a new room.
+  Would you notice them?
+  <<wait 1>>
+  The square at the top left is inventory.
+  It will only appear in this room when you need it.
+  Nowhere else.
+  <<wait 1>>
+  Have a good time exploring, {$name}.
+  <<audio general>>
+  <<portrait Phantom>>
+  Phantom: So how do you feel?
+  <<hideportrait>>
+  -> Nothing.
+    <<portrait Phantom>>
+    Phantom: That's what you came here for.
+    <<hideportrait>>
+    -> What do you mean?
+      <<portrait Phantom>>
+      Phantom: Oh, i forgot you remember nothing.
+      Phantom: Maybe explore around?
+      Phantom: Or let it be.
+      <<hideportrait>>
+    -> How did I come here?
+      <<portrait Phantom>>
+      Phantom: To feel nothing.
+      Phantom: Oh, i forgot you don't have memories.
+      Phantom: Maybe explore around?
+      Phantom: Or let it be.
+      <<hideportrait>>
+  -> I don't know.
+     <<portrait Phantom>>
+     Phantom: Maybe you can explore around.
+     Phantom: They say it's not recommended.
+     Phantom: For you remember things you don't want to.
+     Phantom: You can let it be.
+     <<hideportrait>>
+     <<portrait Eve>>
+     You: .......
+     <<hideportrait>>
+<<endif>>
+===
+
+title: datehuh
+---
+<<portrait Phantom>>
+Phantom: Welcome to the nameless, forgotten and forsaken place, {$name}.
+Phantom: {$player_date} sounds like a wonderful number.
+Phantom: It's the day you died.
+<<hideportrait>>
+<<loadscene chapter1>>
+===
+
+
+
+title: door
+---
+<<if $need_water == true>>
+  -> Go outside of your room?
+     <<loadscene EveCorridor>>
+  -> Stay inside your room.
+     .....
+
+<<elseif $bed_click == true && $pic_click == true && $vase_click == true && $boots_click == true && $balcony_click == true>>
+  <<portrait Phantom>>
+  Phantom: They say ghosts that reside in your mind for too long rot your brain.
+  <<hideportrait>>
+  <<portrait PhantomSmile>>
+  Phantom: It seems like you are the ghost to yourself.
+  <<hideportrait>>
+  <<portrait Eve>> 
+  You: .....
+  <<hideportrait>>
+  <<portrait Phantom>>
+  Phantom: Let's start describing things more naturally, shall we?
+  Phantom: Or like....
+  <<hideportrait>>
+  <<portrait Phantom>>
+  Phantom: nothingness.
+  <<hideportrait>>
+  <<wait 2>>
+  <<portrait Phantom>>
+  Phantom: The flower is not dead.
+  <<hideportrait>>
+  <<set $phantom_says_flower = true>>
+<<else>>
+  They locked you because you are a monster.
+  <<portrait Phantom>>
+  Phantom: Maybe you can look around?
+  <<hideportrait>>
+
+<<endif>>
+  
+===
+
+
+title: bed
+---
+<<if $need_water == true>>
+  You are incapable of sleep.
+<<else>>
+  You don't deserve to rest.
+  <<set $bed_click = true>>
+<<endif>>
+
+===
+
+title: piccc_0
+---
+-> look closely.
+    <<ShowThing_piccc_0>>
+    <<portrait Phantom>>
+    Phantom : Happened on day {$player_date}.
+    <<set $pic_click = true>>
+    <<hideportrait>>
+    <<portrait Eve>>
+    You: Why bring back torture?
+    <<hideportrait>>
+    <<portrait PhantomSmile>>
+    Phantom: The frame works that way.
+    Phantom: Slowly, you will feel nothing even from seeing torture.
+    <<hideportrait>>
+-> Let it be.
+    .....
+===
+
+title: drawer
+---
+-> Open it?
+    It's locked.
+-> Let it be.
+   ......
+===
+
+
+title: boots
+---
+<<if $need_water == true>>
+  You don't need them.
+<<else>>
+  You could bite into it and make your teeth bleed.
+  <<set $boots_click = true>>
+<<endif>>
+===
+
+title: vase
+---
+<<if $water_flower == true>>
+  Was it dead or alive?
+  <<portrait Phantom>>
+  Phantom: Or both?
+  <<hideportrait>>
+<<elseif $phantom_says_flower == true>>
+  <<portrait NiceMonster>>
+  Flower: Wa...ter. Bring....
+  <<set $need_water = true>>
+<<elseif $need_water == true>>
+  The flower is asking for water.
+<<elseif $need_water == false>>
+  The flower is dead.
+  No more dead than you.
+  <<set $vase_click = true>>
+<<endif>>
+===
+
+title: candle
+---
+Too bright.
+===
+
+title: balcony
+---
+<<if $need_water == true>>
+  It's locked.
+<<else>>
+  They locked you so you cannot jump.
+  <<set $balcony_click = true>>
+<<endif>>
+===
+
+
+
+
+title: start
+---
+<<audio kitchensound>>
+===
+
+
+
+title: chapter1_start
+---
+<<audio general>>
+<<if $have_picture == true && $water_flower == true>>
+  <<bwOff>>
+<<else>>
+  <<turnBW>> 
+<<endif>>
+
+<<if $water_flower == true && $have_picture == false>>
+  <<ShowThing_bed>>
+<<endif>>
+===
+
+title: kitchen_start
+---
+<<audio kitchensound>>
+<<if $have_picture == true && $water_flower == true>>
+  <<bwOff>>
+<<else>>
+  <<turnBW>> 
+<<endif>>
+===
+
+title: notthisway
+---
+They didn't go this way.
+===
+
+title: movemonster10
+---
+This is far within your reach.
+<<wait 1>>
+What do you do when they are unreachable?
+<<wait 2>>
+<<portrait Phantom>>
+Phantom: There is another way to your right.
+<<hideportrait>>
+How are you sure it will ever bring you to them?
+===
+
+title: horizon
+---
+There is something in the horizon.
+A way leads it to the bridge.
+The bridge, beyond.
+===
+
+title: chapter1_start_outside
+---
+<<audio starting>>
+<<if $have_picture == true && $water_flower == true>>
+  <<bwOff>>
+<<else>>
+  <<turnBW>> 
+<<endif>>
+
+<<if $water_flower == true && $have_picture == false>>
+  <<ShowThing_bed>>
+<<endif>>
+===
+
+title: balbridge_start
+---
+<<if $have_picture == true>>
+  <<bwOff>>
+  <<hideobj nicemonster>>
+  <<audio starting>>
+<<else>>
+  <<turnBW>> 
+<<endif>>
+
+<<if $water_flower == true && $have_picture == false>>
+  <<ShowThing_bed>>
+<<endif>>
+===
+
+title: date_start
+---
+<<audio starting>>
+<<if $have_picture == true && $water_flower == true>>
+  <<bwOff>>
+<<else>>
+  <<turnBW>> 
+<<endif>>
+===
+
+title: kid_room
+---
+<<portrait Eve>>
+You: I'm not interested to meet anyone.
+<<hideportrait>>
+===
+
+title: secret_garden
+---
+It looks formidably locked.
+===
+
+title: negnoteineve
+---
+<<ShowThing_Negnotered1>>
+===
+
+title: frontyard_start
+---
+<<if $water_flower == true>> 
+    -> Go further outside?
+       <<loadscene Yard>>
+    -> Let it be
+       .....
+
+<<else>>
+  <<turnBW>>
+
+<<endif>>
+
+<<if $water_flower == true && $have_picture == false>>
+  <<ShowThing_go>>
+<<endif>>
+===
+
+title: ground_rose
+---
+<<if $water_flower == true>> 
+    -> Go outside?
+       <<loadscene Frontyard>>
+    -> Let it be
+       .....
+
+<<else>>
+  You need to find water.
+  But you don't want to go that far to search for something
+  that does not matter to you.
+  You could let it die.
+<<endif>>
+
+
+===
+
+title: silentplace_start
+---
+<<if $have_picture == true>>
+  <<audio starting>>
+  <<bwOff>>
+<<else>>
+  <<audio starting>>
+  <<turnBW>> 
+<<endif>>
+
+===
+
+
+title: monster1_talk
+---
+<<if $monster_vid == true>>
+  <<portrait Monster2>>
+  Monster: Don't disturb me.
+  <<hideportrait>>
+  <<portrait Eve>>
+  You: I haven't said anything.
+  <<hideportrait>>
+  <<portrait AngryMonster2>>
+  Monster: ......
+  <<hideportrait>>
+<<else>>
+  <<portrait Monster2>>
+  Monster: What?
+  <<hideportrait>>
+  <<portrait Eve>>
+  You: Can you give me some water?
+  <<hideportrait>>
+  ......
+  Maybe they haven't heard.
+  <<portrait Eve>>
+  You: Can you give-
+  <<hideportrait>>
+  <<audiostop kitchensound>>
+  <<audio screaming>>
+  <<portrait AngryMonster2>>
+  Monster: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  <<hideportrait>>
+  <<audiostop screaming>>
+  <<wait 2>>
+  <<portrait Phantom>>
+  Phantom: Not surprised, are you?
+  <<audio dollhouse>>
+  <<hideportrait>>
+  <<portrait Eve>>
+  You: .......
+  <<hideportrait>>
+  <<bwOff>>
+  In a distant, forgotten memory, you were asking something.
+  You thought they didn't hear you.
+  You asked again.
+  <<wait 1>>
+  What happened then?
+  <<wait 1>>
+  <<hideobj You>>
+  <<play monster_vid2>>
+  <<ShowThing_monster2>>
+  <<turnBW>>
+  <<wait 2>>
+  Maybe. they didn't hear you.
+  <<set $monster_vid = true>>
+<<endif>>
+===
+
+title: monster2_talk
+---
+<<audiostop general>>
+<<portrait Monster1>>
+Monster: .......
+<<hideportrait>>
+-> I need water.
+   <<portrait Monster1>>
+   Monster: It's there.
+   <<hideportrait>>
+   <<portrait Eve>>
+   You: Where?
+   <<hideportrait>>
+   <<portrait AngryMonster1>>
+   Monster: Take a blade and stab yourself in the eye.
+   <<hideportrait>>
+   <<portrait Eve>>
+   You: .....
+   <<hideportrait>>
+   <<wait 2>>
+   <<portrait Monster1>>
+   Monster: There is water on the cabinet by the way you came in.
+   <<ShowThing_monster1>>
+   <<hideportrait>>
+-> What are you doing?
+   <<portrait Monster1>>
+   Monster: Can't you see?
+   <<hideportrait>>
+   <<portrait Eve>>
+   You: I do but I wanted to talk.
+   <<hideportrait>>
+   <<portrait Monster1>>
+   Monster: Why don't you go and make yourself useful instead?
+   <<hideportrait>>
+-> Bye
+===
+
+title: monster3_talk
+---
+<<portrait Monster3>>
+Monster: Are you new?
+Monster: Why did you choose to come here?
+<<hideportrait>>
+<<portrait Eve>>
+You: I....didn't.
+<<hideportrait>>
+<<portrait Monster3>>
+Monster: Oh no, everyone chooses this place.
+<<hideportrait>>
+-> What's so good about this place?
+   <<portrait Monster3>>
+   Monster: It slowly makes you like them.
+   Monster: Feeling nothing anymore.
+   <<hideportrait>>
+   -> What's so bad about feeling?
+     <<portrait Monster3>>
+     Monster: Don't you know?
+     Monster: You can't be the only one.
+     Monster: It needs another soul to understand you.
+     <<hideportrait>>
+    -> Them?
+      <<portrait Monster3>>
+      Monster: ......
+      Monster: The ones in the kitchen.
+      Monster: They don't like me.
+      <<hideportrait>>
+      -> Why?
+        <<portrait Monster3>>
+        Monster: I am not trying harder.
+        Monster: To turn like them.
+        Monster: I still feel too much.
+        Monster: I feel lonely.
+        <<hideportrait>>
+      -> You must be unloveable.
+        <<portrait Monster3>>
+        Monster: .....
+        Monster: I had a heart shape on both sides of my head.
+        Monster: They said it did not belong here.
+        Monster: So they severed one of the hearts.
+        Monster: The other is still holding onto the shape.
+        Monster: But fragile.
+        Monster: Will you be the one to severe it too?
+        <<hideportrait>>
+      -> Bye
+       <<portrait Monster3>>
+       Monster: I'm so lonely.
+       <<hideportrait>>
+    -> Bye
+       <<portrait Monster3>>
+       Monster: I'm so lonely.
+       <<hideportrait>>
+-> Why do they choose it?
+   <<portrait Monster3>>
+   Monster: To escape quickly.
+   Monster: You don't have to look back.
+   Monster: Stay here and feel nothing.
+   Monster: I am failing at it.
+   <<hideportrait>>
+   -> It's okay.
+     <<portrait Monster3>>
+     Monster: Really?
+     <<hideportrait>>
+     <<portrait Eve>>
+     You: Yes.
+     <<hideportrait>>
+     <<portrait Monster3>>
+     Monster: Thank you.
+     <<hideportrait>>
+   -> Try harder.
+     <<portrait Monster3>>
+     Monster: .......
+     Monster: You can be friends with them.
+     <<hideportrait>>
+     <<portrait Eve>>
+     You: Who?
+     <<hideportrait>>
+     <<portrait Monster3>>
+     Monster: The ones in the kitchen. You might like them.
+     Monster: More than me.
+     <<hideportrait>> 
+-> Bye
+  <<portrait Monster3>>
+  Monster: I'm so lonely.
+  <<hideportrait>>
+===
+
+
+title: garbage_room
+---
+<<portrait Monster1>>
+Monster: You cannot go there.
+<<hideportrait>>
+<<portrait Eve>>
+You: I want to.
+<<hideportrait>>
+<<portrait AngryMonster2>>
+Monster: DIDN'T YOU HEAR?
+<<hideportrait>>
+<<portrait AngryMonster1>>
+Monster: Didn't you hear?
+<<hideportrait>>
+===
+
+
+title: ground
+---
+<<loadscene Ground>>
+===
+
+title: eve_stairs
+---
+<<loadscene Eve_Stairs>>
+===
+
+title: eve_corridor
+---
+<<loadscene EveCorridor>>
+===
+
+title: red_corridor
+---
+<<loadscene Red_Corridor>>
+===
+
+title: red_stairs
+---
+<<loadscene Red_Stairs>>
+===
+
+title: kitchen
+---
+<<loadscene Kitchen>>
+===
+
+title: yard
+---
+<<loadscene Yard>>
+===
+
+title: forest
+---
+<<loadscene Forest>>
+===
+
+title: lake_start
+---
+<<if $have_picture == true>>
+  <<audio starting>>
+  <<bwOff>>
+  <<wait 2>>
+  <<portrait Phantom>>
+  Phantom: Isn't this beautiful?
+  Phantom: I thought you wouldn't stop to look.
+  <<audiostop starting>>
+  <<audio ending>>
+  <<hideportrait>>
+  <<portrait Eve>>
+  You: It's pretty.
+  You: .......
+  You: Who are you?
+  <<hideportrait>>
+  <<portrait Phantom>>
+  Phantom: Someone in the depths of your mind.
+  Phantom: Where you don't go anymore.
+  <<hideportrait>>
+  <<wait 2>>
+  <<portrait Phantom>>
+  Phantom: It wasn't all bad.
+  Phantom: {$player_date} might be a day you died but you were born too.
+  Phantom: That's how you are here with me.
+  Phantom: Thank you for visiting this place, {$name}.
+  Phantom: Farewell.
+  Phantom: May we meet again.
+  <<hideportrait>>
+  <<wait 2>>
+  <<quit>>
+<<else>>
+  <<audio starting>>
+  <<ShowThing_bed>>
+<<endif>>
+===
+
+title: yardbackwards
+---
+<<loadscene Frontyard>>
+===
+
+title: lake
+---
+<<loadscene Lake>>
+===
+
+title: bridgebridge
+---
+<<loadscene Bridge>>
+===
+
+title: date
+---
+<<loadscene date>>
+===
+
+title: silentplace
+---
+-> Go down?
+   <<loadscene Silent_Place>>
+-> Let it be.
+   .....
+===
+
+
+title: eve_room
+---
+<<loadscene chapter1>>
+===
+
+
+title: waterflower
+---
+<<removeglasswater>>
+<<set $water_flower = true>>
+It seems a little brighter.
+<<ShowThing_vase>>
+===
+
+title: glasswater
+---
+-> Take it?
+   <<AddItem_glasswater>>
+===
+title: movemonster
+---
+<<hideobj nicemonster>>
+........
+It's gone.
+Like everything else.
+<<wait 2>>
+<<portrait Phantom>>
+Phantom: Idiot.
+Phantom: Follow it.
+<<hideportrait>>
+===
+
+title: movemonster1
+---
+<<hideobj nicemonster>>
+.......
+===
+
+title: movemonster3
+---
+<<hideobj nicemonster>>
+......
+<<portrait Monster3>>
+Monster: Seems like you made a friend.
+Monster: It wants you to go outside.
+Monster: Enjoy....
+<<hideportrait>>
+===
+
+title: movemonster4
+---
+<<hideobj bed>>
+......
+There is a slope.
+-> Fall down?
+  <<loadscene Silent_Place>>
+-> Let it be
+  .......
+===
+
+title: bench_happens
+---
+You would like to sit.
+But it would scare you.
+You might fall behind.
+When you are already a failu-
+<<portrait Phantom>>
+Phantom: Do you see it?
+<<hideportrait>>
+<<portrait Eve>>
+You: ......
+<<hideportrait>>
+<<portrait Phantom>>
+Phantom: The sky.
+Phantom: That flower might have brought you here to see
+Phantom: .....the sky.
+<<hideportrait>>
+<<wait 2>>
+Lol.
+<<wait 1>>
+<<set $have_picture = true>>
+<<bwOff>>
+Something feels missing to you.
+<<wait 1>>
+Something important.
+Like a heart beat.
+If you sit still, it would panic and scare you.
+There was so much to do.
+<<wait 2>>
+<<play silentplace_vid2>>
+<<turnBW>>
+<<ShowThing_You>>
+<<wait 2>>
+<<portrait Eve>>
+You: Did you ask me that?
+<<hideportrait>>
+Flower Monster: No, I asked, do you want to look at the sky?
+<<wait 1>>
+Flower Monster: Can I give you something?
+.....
+Flower Monster: I take it as a yes.
+<<audiostop starting>>
+<<audio stinger>>
+<<hideobj Doll>>
+<<ShowThing_whatelse>>
+<<wait 7>>
+<<ShowThing_balls>>
+<<hideobj monsteranim>>
+<<hideobj Doll>>
+Giving you a flower.
+-> Will you take it?
+   Flower: Thank you.
+   <<AddItem_lastimage>>
+   <<bwOff>>
+   <<wait 2>>
+   <<hideobj lastimage>>
+   <<ShowThing_balerbal>>
+   <<wait 1>>
+   Go and see the world
+   <<audiostop stinger>>
+   <<audio starting>>
+-> let it be.
+   Why?
+   -> take it.
+   <<AddItem_lastimage>>
+   <<bwOff>>
+   <<wait 2>>
+   <<hideobj lastimage>>
+   <<ShowThing_balerbal>>
+   <<wait 1>>
+   Go and see the world.
+   <<audiostop stinger>>
+   <<audio starting>>
+===
+
+title: haha
+---
+Flower Monster: Go and see the world.
+===
+
+
+title: evefloorart
+---
+<<if $color_vid == true>>
+  ......
+<<else>>
+  <<portrait Eve>>
+  You: Colours....
+  <<hideportrait>>
+  <<portrait Phantom>>
+  Phantom: After you left your room, nothing had colors.
+  Phantom: You didn't care.
+  <<hideportrait>>
+  You stare at the bright, beautiful colours.
+  <<portrait Phantom>>
+  Phantom: Someone must have drawn this.
+  Phantom: Do you like it?
+  <<hideportrait>>
+  <<wait 2>>
+  <<bwOff>>
+  It feels like you loved colours.
+  The brightest ones.
+  It hurt the eyes.
+  But you were starved.
+  <<wait 2>>
+  <<hideobj You>>
+  <<hideobj Evefloorart>>
+  <<play color_vid2>>
+  <<ShowThing_You>>
+  <<ShowThing_Evefloorart>>
+  <<turnBW>>
+  <<set $color_vid = true>>
+<<endif>>
+===
+
+
+title: alice_door
+---
+<<portrait Eve>>
+You: It has a rose over his head.
+<<hideportrait>>
+<<wait 2>>
+<<portrait Eve>>
+You: It's familiar.
+<<hideportrait>>
+<<portrait Phantom>>
+Phantom: Did anyone use to give you roses?
+<<hideportrait>>
+<<wait 1>>
+........
+<<portrait Phantom>>
+Phantom: Or perhaps, you would pick them up yourself?
+<<hideportrait>>
+<<wait 2>>
+<<bwOff>>
+You used to love bright, red roses.
+But they were full of thorns.
+You thought they didn't love you.
+<<wait 1>>
+You didn't care until....
+<<wait 2>>
+<<hideobj You>>
+<<play rose_vid2>>
+<<ShowThing_go>>
+<<wait 2>>
+Do beautiful things scare you now?
+<<turnBW>>
+<<set $rose_vid = true>>
+===
+
+title: graven_door
+---
+They all seem to be decaying.
+===
+
+title: lithia_door
+---
+<<portrait Phantom>>
+Phantom: This one is dying.
+<<hideportrait>>
+<<portrait Eve>>
+You: Aren't we dead?
+<<hideportrait>>
+<<portrait PhantomSmile>>
+Phantom: Yes but you haven't yet decomposed into the roots of a tree.
+<<hideportrait>>
+===
